@@ -316,7 +316,7 @@ Cooldown (5 minutes between operations)
 ### Configuration
 
 ```bash
-# /home/owner/Repos/k8s-deploy/addons/node-autoscaler/autoscaler.env
+# k8s-deploy/addons/node-autoscaler/autoscaler.env
 SCALE_UP_THRESHOLD=80
 SCALE_DOWN_THRESHOLD=30
 MIN_WORKERS=2

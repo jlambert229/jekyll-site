@@ -24,7 +24,7 @@ Not a commit from years ago that I'd forgotten about. A commit from *last Tuesda
 alertmanager:
   config:
     global:
-      smtp_auth_password: 'sdfwsoapujnlgjof'  # right there in plaintext
+      smtp_auth_password: 'your-app-password'  # right there in plaintext
 ```
 
 The commit was public. The repo was public. The password was public. And I had no idea until I was browsing GitHub on my phone and saw it.
@@ -162,7 +162,7 @@ The apps didn't change. Before, they read secrets from hardcoded Helm values. No
 Changed `apps/monitoring/values.yaml` from:
 
 ```yaml
-smtp_auth_password: 'sdfwsoapujnlgjof'  # ❌ hardcoded
+smtp_auth_password: 'your-app-password'  # ❌ hardcoded
 ```
 
 To:

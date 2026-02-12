@@ -40,7 +40,7 @@ Two files. Two keys to the cluster. Guard them. Back them up. Don't commit them 
 The single most useful command for day-to-day operations:
 
 ```bash
-talosctl dashboard --nodes 192.168.2.70,192.168.2.80,192.168.2.81
+talosctl dashboard --nodes 192.168.1.70,192.168.1.80,192.168.1.81
 ```
 
 A real-time TUI showing CPU, memory, disk, network, and service status across all nodes. One screen replaces five terminal windows of `stats`, `services`, `logs`, `disks`, and `health`. I keep this in a tmux pane whenever I'm working on the cluster. A service going red, memory climbing, a node disappearing — you see it immediately.
@@ -49,10 +49,10 @@ A real-time TUI showing CPU, memory, disk, network, and service status across al
 
 ```bash
 # Quick cluster health
-talosctl health --nodes 192.168.2.70,192.168.2.80,192.168.2.81
+talosctl health --nodes 192.168.1.70,192.168.1.80,192.168.1.81
 
 # With timeout (useful in scripts)
-talosctl health --wait-timeout 5m --nodes 192.168.2.70
+talosctl health --wait-timeout 5m --nodes 192.168.1.70
 ```
 
 This checks etcd, kubelet, API server, and node connectivity. Run it before and after every maintenance operation. If it fails, stop and investigate — don't push forward hoping the next step will fix it.
@@ -61,10 +61,10 @@ This checks etcd, kubelet, API server, and node connectivity. Run it before and 
 
 ```bash
 # All services on a node
-talosctl services --nodes 192.168.2.70
+talosctl services --nodes 192.168.1.70
 
 # Specific service
-talosctl services etcd --nodes 192.168.2.70
+talosctl services etcd --nodes 192.168.1.70
 ```
 
 Services include: `apid`, `containerd`, `cri`, `etcd`, `kubelet`, `machined`, `trustd`, `udevd`. If any show as `Unknown` or `Maintenance`, something needs attention.
@@ -75,15 +75,15 @@ One command, one service, one node. No log directories to traverse, no file path
 
 ```bash
 # Service logs
-talosctl logs kubelet --nodes 192.168.2.80
-talosctl logs etcd --nodes 192.168.2.70
+talosctl logs kubelet --nodes 192.168.1.80
+talosctl logs etcd --nodes 192.168.1.70
 
 # Follow mode
-talosctl logs kubelet --nodes 192.168.2.80 --follow
+talosctl logs kubelet --nodes 192.168.1.80 --follow
 
 # Kernel logs (dmesg)
-talosctl dmesg --nodes 192.168.2.80
-talosctl dmesg --nodes 192.168.2.80 --follow
+talosctl dmesg --nodes 192.168.1.80
+talosctl dmesg --nodes 192.168.1.80 --follow
 ```
 
 `talosctl dmesg` is how you debug hardware issues, boot failures, and driver problems. It replaces SSH-ing in and reading `/var/log/` — which doesn't exist on Talos.
@@ -92,23 +92,23 @@ talosctl dmesg --nodes 192.168.2.80 --follow
 
 ```bash
 # OS and hardware info
-talosctl get members --nodes 192.168.2.70
+talosctl get members --nodes 192.168.1.70
 
 # Detailed machine config (what's actually applied)
-talosctl get machineconfig --nodes 192.168.2.70
+talosctl get machineconfig --nodes 192.168.1.70
 
 # Disk layout
-talosctl disks --nodes 192.168.2.80
+talosctl disks --nodes 192.168.1.80
 
 # Network interfaces
-talosctl get addresses --nodes 192.168.2.80
-talosctl get routes --nodes 192.168.2.80
+talosctl get addresses --nodes 192.168.1.80
+talosctl get routes --nodes 192.168.1.80
 
 # Installed extensions
-talosctl get extensions --nodes 192.168.2.80
+talosctl get extensions --nodes 192.168.1.80
 
 # System resource usage
-talosctl stats --nodes 192.168.2.70
+talosctl stats --nodes 192.168.1.70
 ```
 
 ---
@@ -121,13 +121,13 @@ etcd is the brain of your cluster. Kubernetes stores all state — Deployments, 
 
 ```bash
 # etcd cluster status
-talosctl etcd status --nodes 192.168.2.70
+talosctl etcd status --nodes 192.168.1.70
 
 # Member list
-talosctl etcd members --nodes 192.168.2.70
+talosctl etcd members --nodes 192.168.1.70
 
 # etcd alarms (check for NOSPACE, CORRUPT)
-talosctl etcd alarm list --nodes 192.168.2.70
+talosctl etcd alarm list --nodes 192.168.1.70
 ```
 
 For a single control plane homelab, you'll see one member. For HA (3 CPs), you'll see three. All should show `started: true`.
@@ -147,7 +147,7 @@ This is your lowest-level backup. Even if Velero fails, an etcd snapshot can rec
 
 ```bash
 # Take a snapshot
-talosctl etcd snapshot /tmp/etcd-snapshot.db --nodes 192.168.2.70
+talosctl etcd snapshot /tmp/etcd-snapshot.db --nodes 192.168.1.70
 
 # The file is downloaded to your local machine
 ls -lh /tmp/etcd-snapshot.db
@@ -159,7 +159,7 @@ I take snapshots before upgrades, before etcd maintenance, and weekly via cron. 
 #!/bin/bash
 SNAPSHOT_DIR="/mnt/nas/backups/etcd"
 DATE=$(date +%Y%m%d-%H%M)
-talosctl etcd snapshot "${SNAPSHOT_DIR}/etcd-${DATE}.db" --nodes 192.168.2.70
+talosctl etcd snapshot "${SNAPSHOT_DIR}/etcd-${DATE}.db" --nodes 192.168.1.70
 fd -t f --changed-before 30d . "$SNAPSHOT_DIR" -x rm {}
 ```
 
@@ -169,15 +169,15 @@ If etcd gets corrupted or a member needs to be rebuilt:
 
 ```bash
 # Remove a stale member
-talosctl etcd members --nodes 192.168.2.70
-talosctl etcd remove-member <member-id> --nodes 192.168.2.70
+talosctl etcd members --nodes 192.168.1.70
+talosctl etcd remove-member <member-id> --nodes 192.168.1.70
 ```
 
 For full etcd recovery from a snapshot on a fresh cluster:
 
 ```bash
 talosctl bootstrap --recover-from=/path/to/etcd-snapshot.db \
-    --nodes 192.168.2.70
+    --nodes 192.168.1.70
 ```
 
 <div class="admonition admonition-info" markdown="1">
@@ -197,7 +197,7 @@ Nodes fail. Power supplies die, disks corrupt, VMs get accidentally deleted. Wit
 
 ### Replace a Worker
 
-**Scenario:** Worker `talos-w-2` (192.168.2.81) has a bad disk.
+**Scenario:** Worker `talos-w-2` (192.168.1.81) has a bad disk.
 
 ```bash
 # 1. Drain workloads off the node
@@ -220,7 +220,7 @@ Terraform destroys the old VM, creates a new one, applies the Talos machine conf
 ```bash
 # 5. Verify
 kubectl get nodes
-talosctl health --nodes 192.168.2.81 --wait-timeout 5m
+talosctl health --nodes 192.168.1.81 --wait-timeout 5m
 ```
 
 ### Replace the Control Plane
@@ -229,7 +229,7 @@ Replacing a single CP is straightforward: snapshot etcd, back up with Velero, ta
 
 ```bash
 # 1. Take an etcd snapshot FIRST
-talosctl etcd snapshot /tmp/etcd-pre-replace.db --nodes 192.168.2.70
+talosctl etcd snapshot /tmp/etcd-pre-replace.db --nodes 192.168.1.70
 
 # 2. Take a Velero backup
 velero backup create pre-cp-replace-$(date +%Y%m%d) \
@@ -263,17 +263,17 @@ Talos machine configs are applied at deploy time, but you can patch them on runn
 
 ```bash
 # Full machine config
-talosctl get machineconfig -o yaml --nodes 192.168.2.80
+talosctl get machineconfig -o yaml --nodes 192.168.1.80
 
 # Specific section
-talosctl get machineconfig -o yaml --nodes 192.168.2.80 | yq '.spec.machine.network'
+talosctl get machineconfig -o yaml --nodes 192.168.1.80 | yq '.spec.machine.network'
 ```
 
 ### Apply a Patch
 
 ```bash
 # Increase inotify watchers
-talosctl patch machineconfig --nodes 192.168.2.80 --patch '[
+talosctl patch machineconfig --nodes 192.168.1.80 --patch '[
   {
     "op": "add",
     "path": "/machine/sysctls",
@@ -335,7 +335,7 @@ machine:
   network:
     routes:
       - network: 10.10.0.0/24
-        gateway: 192.168.2.1
+        gateway: 192.168.1.1
 ```
 
 <div class="admonition admonition-tip" markdown="1">
@@ -356,7 +356,7 @@ Talos manages its own PKI for the Talos API (port 50000) and generates Kubernete
 ### Check Certificate Expiry
 
 ```bash
-talosctl get certificates --nodes 192.168.2.70
+talosctl get certificates --nodes 192.168.1.70
 kubectl get csr
 ```
 
@@ -365,7 +365,7 @@ kubectl get csr
 Talos handles rotation automatically during upgrades. To force it:
 
 ```bash
-talosctl rotate-ca --nodes 192.168.2.70,192.168.2.80,192.168.2.81
+talosctl rotate-ca --nodes 192.168.1.70,192.168.1.80,192.168.1.81
 ```
 
 <div class="admonition admonition-warning" markdown="1">
@@ -387,7 +387,7 @@ cd ~/Repos/k8s-deploy
 terraform apply
 
 # Or directly
-talosctl kubeconfig --nodes 192.168.2.70 > generated/kubeconfig
+talosctl kubeconfig --nodes 192.168.1.70 > generated/kubeconfig
 ```
 
 ---
@@ -404,10 +404,10 @@ kubectl drain talos-w-2 --ignore-daemonsets --delete-emptydir-data
 kubectl delete node talos-w-2
 
 # Reset (wipes state, keeps Talos installed)
-talosctl reset --nodes 192.168.2.81 --graceful
+talosctl reset --nodes 192.168.1.81 --graceful
 
 # Node reboots into maintenance mode — re-apply config
-talosctl apply-config --nodes 192.168.2.81 \
+talosctl apply-config --nodes 192.168.1.81 \
     --file machine-config-worker.yaml
 ```
 
@@ -416,7 +416,7 @@ talosctl apply-config --nodes 192.168.2.81 \
 For complete decommission:
 
 ```bash
-talosctl reset --nodes 192.168.2.81 --graceful --wipe-mode all
+talosctl reset --nodes 192.168.1.81 --graceful --wipe-mode all
 ```
 
 <div class="admonition admonition-warning" markdown="1">
@@ -437,9 +437,9 @@ talosctl reset --nodes 192.168.2.81 --graceful --wipe-mode all
 **Symptoms:** New node created by Terraform, `kubectl get nodes` doesn't show it.
 
 ```bash
-talosctl services --nodes 192.168.2.81
-talosctl logs kubelet --nodes 192.168.2.81
-talosctl dmesg --nodes 192.168.2.81 | rg -i 'error|fail|refused'
+talosctl services --nodes 192.168.1.81
+talosctl logs kubelet --nodes 192.168.1.81
+talosctl dmesg --nodes 192.168.1.81 | rg -i 'error|fail|refused'
 ```
 
 | Cause | Fix |
@@ -454,9 +454,9 @@ talosctl dmesg --nodes 192.168.2.81 | rg -i 'error|fail|refused'
 **Symptoms:** `talosctl health` fails at etcd. API server intermittently unavailable.
 
 ```bash
-talosctl etcd status --nodes 192.168.2.70
-talosctl etcd alarm list --nodes 192.168.2.70
-talosctl disks --nodes 192.168.2.70
+talosctl etcd status --nodes 192.168.1.70
+talosctl etcd alarm list --nodes 192.168.1.70
+talosctl disks --nodes 192.168.1.70
 ```
 
 | Cause | Fix |
@@ -470,8 +470,8 @@ talosctl disks --nodes 192.168.2.70
 
 ```bash
 kubectl describe node talos-w-2 | rg -A5 'Conditions'
-talosctl services kubelet --nodes 192.168.2.81
-talosctl logs kubelet --nodes 192.168.2.81 | tail -50
+talosctl services kubelet --nodes 192.168.1.81
+talosctl logs kubelet --nodes 192.168.1.81 | tail -50
 ```
 
 | Cause | Fix |
@@ -484,7 +484,7 @@ talosctl logs kubelet --nodes 192.168.2.81 | tail -50
 ### Can't Reach Talos API (Port 50000)
 
 ```bash
-nc -zv 192.168.2.70 50000
+nc -zv 192.168.1.70 50000
 ```
 
 If the node is in maintenance mode (visible in Proxmox console), it needs a machine config applied before it starts normal services.

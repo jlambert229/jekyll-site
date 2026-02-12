@@ -56,7 +56,7 @@ Alternative: `vzdump` to NFS share. Works, but no deduplication, no verification
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Proxmox VE (192.168.2.10)                                   │
+│  Proxmox VE (192.168.1.10)                                   │
 │       │                                                      │
 │   VMs: Talos K8s (CP + 2 workers), Pi-hole, dev box        │
 │       │                                                      │
@@ -67,7 +67,7 @@ Alternative: `vzdump` to NFS share. Works, but no deduplication, no verification
 │  ┌─────────────────────────┐                                │
 │  │ Proxmox Backup Server   │                                │
 │  │ (Synology NAS Docker)   │                                │
-│  │ 192.168.2.10:8007      │                                │
+│  │ 192.168.1.10:8007      │                                │
 │  └──────────┬──────────────┘                                │
 │             │                                                │
 │       ┌─────┴─────┐                                          │
@@ -84,7 +84,7 @@ PBS runs in Docker on your Synology (repurposing existing hardware). Proxmox con
 ## Prerequisites
 
 - Synology NAS with Docker support
-- SSH access to Synology (`jlambert@192.168.2.10`)
+- SSH access to Synology (`youruser@192.168.1.10`)
 - Proxmox VE 8.x
 - Static IP for PBS (or reserve DHCP lease)
 
@@ -172,7 +172,7 @@ What it does:
 SSH to your Synology:
 
 ```bash
-ssh jlambert@192.168.2.10
+ssh youruser@192.168.1.10
 
 # Create directories
 sudo mkdir -p /volume1/docker/pbs/{etc,lib}
@@ -199,14 +199,14 @@ docker logs proxmox-backup-server
 Or manually:
 
 ```bash
-curl -k https://192.168.2.10:8007
+curl -k https://192.168.1.10:8007
 # Should return: "API service ready"
 
 docker ps | grep proxmox-backup-server
 # Should show: Up <time>
 ```
 
-Open PBS web UI: `https://192.168.2.10:8007`
+Open PBS web UI: `https://192.168.1.10:8007`
 
 - Username: `admin`
 - Realm: `pbs`
@@ -307,7 +307,7 @@ Proxmox Web UI → Datacenter → Storage → Add → Proxmox Backup Server
 
 ```yaml
 ID: pbs-synology
-Server: 192.168.2.10
+Server: 192.168.1.10
 Username: proxmox-backup@pbs
 Password/Token: (paste API token or password)
 Datastore: proxmox-vms
@@ -427,7 +427,7 @@ Forward PBS logs to a central log server (optional):
 **Configuration → Administration → Syslog**
 
 ```yaml
-Server: 192.168.2.100:514
+Server: 192.168.1.100:514
 Protocol: UDP
 Format: RFC3164
 ```
@@ -471,7 +471,7 @@ PBS automatically verifies backups, but you should test restores manually.
 
 1. **PBS is running:**
    ```bash
-   ssh jlambert@192.168.2.10
+   ssh youruser@192.168.1.10
    docker ps | grep proxmox-backup-server
    ```
 
@@ -485,7 +485,7 @@ PBS automatically verifies backups, but you should test restores manually.
 3. **Network:**
    ```bash
    # From Proxmox node
-   curl -k https://192.168.2.10:8007
+   curl -k https://192.168.1.10:8007
    # Should return: "API service ready"
    ```
 
@@ -521,7 +521,7 @@ PBS Web UI → Datastore → proxmox-vms
 **Check:**
 
 ```bash
-ssh jlambert@192.168.2.10
+ssh youruser@192.168.1.10
 docker logs proxmox-backup-server | grep -i verify
 ```
 
@@ -546,7 +546,7 @@ Common causes:
 1. **Network speed:**
    ```bash
    # From Proxmox node
-   iperf3 -c 192.168.2.10
+   iperf3 -c 192.168.1.10
    # Should show > 100 Mbps
    ```
 

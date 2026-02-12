@@ -87,7 +87,7 @@ Velero supports S3, GCS, Azure Blob, and filesystem targets. For homelab, NFS is
 SSH to your NAS and create the backup directory:
 
 ```bash
-ssh jlambert@192.168.2.10
+ssh youruser@192.168.1.10
 sudo mkdir -p /volume1/nfs01/velero-backups
 sudo chown -R nobody:nogroup /volume1/nfs01/velero-backups
 sudo chmod 755 /volume1/nfs01/velero-backups
@@ -95,7 +95,7 @@ sudo chmod 755 /volume1/nfs01/velero-backups
 
 Verify NFS export in DSM: Control Panel → Shared Folder → `nfs01` → Edit → NFS Permissions
 
-Ensure your K8s subnet (`192.168.2.0/24`) has read/write access.
+Ensure your K8s subnet (`192.168.1.0/24`) has read/write access.
 
 ---
 

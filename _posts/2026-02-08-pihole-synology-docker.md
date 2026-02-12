@@ -87,7 +87,7 @@ The repo includes automated deployment scripts. You can deploy manually by follo
 
 Pi-hole gets its own IP via macvlan:
 
-```20:67:/home/owner/Repos/pihole-synology-docker/docker-compose.yml
+```20:67:pihole-synology-docker/docker-compose.yml
 services:
   pihole:
     container_name: pihole
@@ -181,7 +181,7 @@ macvlan isolation. By design, the host can't talk to macvlan containers. This br
 
 **The fix: a network shim.** Create a macvlan interface on the host that bridges the gap:
 
-```17:42:/home/owner/Repos/pihole-synology-docker/macvlan-shim.sh
+```17:42:pihole-synology-docker/macvlan-shim.sh
 set -euo pipefail
 
 # ═════════════════════════════════════════════════════════════════════
@@ -256,7 +256,7 @@ What it does:
 
 Output shows each step with colored status. Takes ~2 minutes depending on image pull.
 
-```43:50:/home/owner/Repos/pihole-synology-docker/deploy.sh
+```43:50:pihole-synology-docker/deploy.sh
 # ─────────────────────────────────────────────
 step "1/7" "Preflight checks"
 # ─────────────────────────────────────────────
@@ -297,7 +297,7 @@ The repo includes curated config files. Apply them with [`apply-config.sh`](http
 
 Three tiers defined in [`config/adlists.csv`](https://github.com/YOUR-USERNAME/pihole-synology-docker/blob/main/config/adlists.csv):
 
-```14:27:/home/owner/Repos/pihole-synology-docker/config/adlists.csv
+```14:27:pihole-synology-docker/config/adlists.csv
 # ──────────────────────────────────────────────────────────────
 # Essential - start here
 # ──────────────────────────────────────────────────────────────
@@ -333,7 +333,7 @@ I started with all tiers enabled. Broke multiple shopping sites. Spent an evenin
 
 Pre-emptive fixes for common false positives. The repo includes ~100 domains that aggressive blocklists often catch:
 
-```10:23:/home/owner/Repos/pihole-synology-docker/config/whitelist.txt
+```10:23:pihole-synology-docker/config/whitelist.txt
 # ──────────────────────────────────────────────────────────────
 # Microsoft - login, updates, services
 # ──────────────────────────────────────────────────────────────
@@ -367,7 +367,7 @@ This is the collective pain of community testing. These domains get blocked by o
 
 Add local hostname resolution via dnsmasq using [`config/99-custom.conf`](https://github.com/YOUR-USERNAME/pihole-synology-docker/blob/main/config/99-custom.conf):
 
-```30:47:/home/owner/Repos/pihole-synology-docker/config/99-custom.conf
+```30:47:pihole-synology-docker/config/99-custom.conf
 # ──────────────────────────────────────────────────────────────
 # Local DNS records - homelab devices
 # ──────────────────────────────────────────────────────────────
@@ -409,7 +409,7 @@ Manual DHCP configuration works, but automation is better. The repo includes [`u
 ./update-router-dns.sh
 ```
 
-```35:47:/home/owner/Repos/pihole-synology-docker/update-router-dns.sh
+```35:47:pihole-synology-docker/update-router-dns.sh
 # ─────────────────────────────────────────────
 step "1/4" "Preflight"
 # ─────────────────────────────────────────────
@@ -450,7 +450,7 @@ Existing DHCP clients keep their old DNS until lease renewal (typically 24 hours
 
 Automated backups via [`backup.sh`](https://github.com/YOUR-USERNAME/pihole-synology-docker/blob/main/backup.sh):
 
-```15:16:/home/owner/Repos/pihole-synology-docker/backup.sh
+```15:16:pihole-synology-docker/backup.sh
 # Cron (daily at 3am):
 #   0 3 * * * /volume1/docker/pihole/backup.sh 2>&1 | logger -t pihole-backup
 ```
@@ -627,7 +627,7 @@ Day one: enabled every aggressive blocklist. "Maximum ad blocking." Broke the mo
 
 ### 5. Local DNS Is the Killer Feature
 
-I set this up for ad blocking. Ads are gone. Great. But the real win? `nas.homelab` instead of 192.168.2.10. `plex.media.lan`. `*.homelab.lan` for every Kubernetes service. I stopped opening my "homelab IP cheat sheet" document. The family stopped asking "what's the address for the movie thing again?" Local DNS is the silent quality-of-life upgrade nobody talks about. This alone justifies Pi-hole.
+I set this up for ad blocking. Ads are gone. Great. But the real win? `nas.homelab` instead of 192.168.1.10. `plex.media.lan`. `*.homelab.lan` for every Kubernetes service. I stopped opening my "homelab IP cheat sheet" document. The family stopped asking "what's the address for the movie thing again?" Local DNS is the silent quality-of-life upgrade nobody talks about. This alone justifies Pi-hole.
 
 ---
 

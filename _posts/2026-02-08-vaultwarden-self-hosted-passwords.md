@@ -488,7 +488,7 @@ Run manually:
 
 ```bash
 # Sync backups to Synology via rsync
-rsync -avz ./backups/ jlambert@192.168.2.10:/volume1/backups/vaultwarden/
+rsync -avz ./backups/ youruser@192.168.1.10:/volume1/backups/vaultwarden/
 ```
 
 <div class="admonition admonition-danger" markdown="1">

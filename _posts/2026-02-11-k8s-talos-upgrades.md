@@ -129,13 +129,13 @@ NEW_VERSION="v1.9.4"
 talosctl upgrade \
     --image factory.talos.dev/installer/${SCHEMATIC_ID}:${NEW_VERSION} \
     --preserve \
-    --nodes 192.168.2.80
+    --nodes 192.168.1.80
 
 # Wait for it to come back
-talosctl health --nodes 192.168.2.80 --wait-timeout 5m
+talosctl health --nodes 192.168.1.80 --wait-timeout 5m
 
 # Verify version
-talosctl version --nodes 192.168.2.80
+talosctl version --nodes 192.168.1.80
 ```
 
 The node reboots during upgrade. Kubernetes drains it first, so pods migrate to other workers. With `--preserve`, the data partition survives — PVCs backed by local storage stay intact.
@@ -147,9 +147,9 @@ The node reboots during upgrade. Kubernetes drains it first, so pods migrate to 
 talosctl upgrade \
     --image factory.talos.dev/installer/${SCHEMATIC_ID}:${NEW_VERSION} \
     --preserve \
-    --nodes 192.168.2.81
+    --nodes 192.168.1.81
 
-talosctl health --nodes 192.168.2.81 --wait-timeout 5m
+talosctl health --nodes 192.168.1.81 --wait-timeout 5m
 ```
 
 <div class="admonition admonition-warning" markdown="1">
@@ -169,18 +169,18 @@ After all workers are on the new version and healthy:
 talosctl upgrade \
     --image factory.talos.dev/installer/${SCHEMATIC_ID}:${NEW_VERSION} \
     --preserve \
-    --nodes 192.168.2.70
+    --nodes 192.168.1.70
 ```
 
 For a single CP homelab, the API server goes down during the reboot (30–90 seconds). Workloads keep running on workers — they just can't be managed until the API comes back.
 
 ```bash
 # Wait for CP to return
-talosctl health --nodes 192.168.2.70 --wait-timeout 10m
+talosctl health --nodes 192.168.1.70 --wait-timeout 10m
 
 # Verify everything
 kubectl get nodes
-talosctl version --nodes 192.168.2.70,192.168.2.80,192.168.2.81
+talosctl version --nodes 192.168.1.70,192.168.1.80,192.168.1.81
 ```
 
 <div class="admonition admonition-tip" markdown="1">
@@ -190,7 +190,7 @@ talosctl version --nodes 192.168.2.70,192.168.2.80,192.168.2.81
 With 3 control plane nodes, upgrade one at a time. etcd maintains quorum with 2/3 nodes, so the API stays available throughout. Upgrade order: secondary CPs first, primary last.
 
 ```bash
-for node in 192.168.2.71 192.168.2.72 192.168.2.70; do
+for node in 192.168.1.71 192.168.1.72 192.168.1.70; do
     talosctl upgrade \
         --image factory.talos.dev/installer/${SCHEMATIC_ID}:${NEW_VERSION} \
         --preserve --nodes $node
@@ -212,14 +212,14 @@ NEW_K8S="1.32.2"
 
 talosctl upgrade-k8s \
     --to ${NEW_K8S} \
-    --nodes 192.168.2.70
+    --nodes 192.168.1.70
 ```
 
 You only run this against a control plane node. Talos handles updating all nodes.
 
 ```bash
 # Watch the upgrade progress
-talosctl dmesg --nodes 192.168.2.70 --follow | rg -i 'upgrade|kubernetes'
+talosctl dmesg --nodes 192.168.1.70 --follow | rg -i 'upgrade|kubernetes'
 
 # Verify
 kubectl version
@@ -278,7 +278,7 @@ TALOS_VERSION="v1.9.4"
 talosctl upgrade \
     --image factory.talos.dev/installer/${NEW_SCHEMATIC}:${TALOS_VERSION} \
     --preserve \
-    --nodes 192.168.2.80
+    --nodes 192.168.1.80
 ```
 
 ### Verify Extensions
@@ -315,7 +315,7 @@ Rollback only works for the **immediately previous** version. If you upgrade v1.
 There's no built-in `talosctl rollback-k8s`. To revert a Kubernetes upgrade:
 
 ```bash
-talosctl upgrade-k8s --to 1.32.0 --nodes 192.168.2.70
+talosctl upgrade-k8s --to 1.32.0 --nodes 192.168.1.70
 ```
 
 This works because `upgrade-k8s` doesn't care about direction — it sets the target version and converges.
@@ -341,7 +341,7 @@ I check for updates monthly. Talos releases roughly every 2–3 weeks.
 
 ```bash
 # Check current versions
-talosctl version --nodes 192.168.2.70 --short
+talosctl version --nodes 192.168.1.70 --short
 kubectl version --short
 
 # Check latest Talos release
@@ -401,7 +401,7 @@ The first time I upgraded without `--preserve`, I lost all local PVCs. Talos ref
 `talosctl dashboard` during an upgrade gives you real-time visibility: CPU, memory, disk, network, service status, kernel logs — all in one TUI. Way better than running five commands in parallel.
 
 ```bash
-talosctl dashboard --nodes 192.168.2.70,192.168.2.80,192.168.2.81
+talosctl dashboard --nodes 192.168.1.70,192.168.1.80,192.168.1.81
 ```
 
 When a node reboots, you see it disappear and come back. When services start, you see them go green one by one. It's the difference between "I hope it's working" and "I can see it working."

@@ -187,7 +187,7 @@ ap playbooks/backup.yml
 **Automated** (recommended):
 
 ```bash
-./scripts/add-proxmox-host.sh 192.168.2.132 opti-7090
+./scripts/add-proxmox-host.sh 192.168.1.132 opti-7090
 ```
 
 The script discovers the host (or uses the IP you provide), adds it to inventory with the same config as existing hosts, and runs `site.yml`. New host gets patching, security, and backups in one pass.
@@ -203,12 +203,12 @@ all:
     proxmox_hosts:
       hosts:
         opti-7090:
-          ansible_host: 192.168.2.132
+          ansible_host: 192.168.1.132
           ansible_user: jlambert
           ansible_become: true
           ansible_python_interpreter: /usr/bin/python3
           pve_node_name: opti-7090
-          pve_management_ip: 192.168.2.132
+          pve_management_ip: 192.168.1.132
 ```
 
 Then run `ap playbooks/site.yml` or `ap playbooks/site.yml --limit opti-7090`.

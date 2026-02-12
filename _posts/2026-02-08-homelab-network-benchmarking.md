@@ -55,12 +55,12 @@ My setup (adjust commands for yours):
 │  Network: 1 Gbps managed switch (EdgeSwitch 24)             │
 │                                                              │
 │  Nodes:                                                      │
-│   • Proxmox VE (192.168.2.10)          - Intel i7, 32 GB   │
-│   • Synology NAS (192.168.2.10)       - Celeron, 8 GB     │
-│   • Talos K8s CP (192.168.2.70)        - 2 vCPU, 4 GB      │
-│   • Talos K8s W1 (192.168.2.80)        - 2 vCPU, 4 GB      │
-│   • Talos K8s W2 (192.168.2.81)        - 2 vCPU, 4 GB      │
-│   • EdgeRouter X (192.168.2.1)         - Router            │
+│   • Proxmox VE (192.168.1.10)          - Intel i7, 32 GB   │
+│   • Synology NAS (192.168.1.10)       - Celeron, 8 GB     │
+│   • Talos K8s CP (192.168.1.70)        - 2 vCPU, 4 GB      │
+│   • Talos K8s W1 (192.168.1.80)        - 2 vCPU, 4 GB      │
+│   • Talos K8s W2 (192.168.1.81)        - 2 vCPU, 4 GB      │
+│   • EdgeRouter X (192.168.1.1)         - Router            │
 │                                                              │
 │  Storage: Synology 4-bay NAS (RAID 5, NFS export)          │
 └─────────────────────────────────────────────────────────────┘
@@ -107,7 +107,7 @@ iperf3 -s
 **On Proxmox (client):**
 
 ```bash
-iperf3 -c 192.168.2.10 -t 30 -i 5
+iperf3 -c 192.168.1.10 -t 30 -i 5
 ```
 
 **Flags:**
@@ -140,7 +140,7 @@ Run tests at different times (peak vs. off-peak hours). If throughput drops duri
 ### Test: Parallel Streams (Simulate Multi-User Load)
 
 ```bash
-iperf3 -c 192.168.2.10 -P 10 -t 30
+iperf3 -c 192.168.1.10 -P 10 -t 30
 ```
 
 **`-P 10`:** 10 parallel streams (simulates multiple users)
@@ -152,7 +152,7 @@ iperf3 -c 192.168.2.10 -P 10 -t 30
 ### Test: UDP Bandwidth (Jitter and Packet Loss)
 
 ```bash
-iperf3 -c 192.168.2.10 -u -b 1G -t 30
+iperf3 -c 192.168.1.10 -u -b 1G -t 30
 ```
 
 **Flags:**
@@ -176,10 +176,10 @@ Verify pods can reach full network speed (important for NFS-backed PVCs):
 
 ```bash
 # Start iperf3 server on Synology (if not running)
-ssh jlambert@192.168.2.10 "iperf3 -s -D"
+ssh youruser@192.168.1.10 "iperf3 -s -D"
 
 # From K8s cluster
-kubectl run iperf3-client --rm -it --image=mlabbe/iperf3 -- iperf3 -c 192.168.2.10 -t 30
+kubectl run iperf3-client --rm -it --image=mlabbe/iperf3 -- iperf3 -c 192.168.1.10 -t 30
 ```
 
 **Expected:** Same ~940 Mbps
@@ -200,7 +200,7 @@ kubectl run iperf3-client --rm -it --image=mlabbe/iperf3 -- iperf3 -c 192.168.2.
 SSH to Synology, test raw storage performance:
 
 ```bash
-ssh jlambert@192.168.2.10
+ssh youruser@192.168.1.10
 
 # Write test (create 10 GB file)
 dd if=/dev/zero of=/volume1/test-write.img bs=1M count=10240 conv=fdatasync
@@ -228,7 +228,7 @@ Mount NFS share temporarily:
 ```bash
 # On Proxmox
 mkdir /mnt/nfs-test
-mount -t nfs 192.168.2.10:/volume1/nfs01 /mnt/nfs-test
+mount -t nfs 192.168.1.10:/volume1/nfs01 /mnt/nfs-test
 
 # Write test
 dd if=/dev/zero of=/mnt/nfs-test/test-write.img bs=1M count=10240 conv=fdatasync
@@ -556,7 +556,7 @@ echo "Date: $(date)" | tee -a "$OUTPUT"
 echo "" | tee -a "$OUTPUT"
 
 echo "--- Network: Proxmox → Synology ---" | tee -a "$OUTPUT"
-iperf3 -c 192.168.2.10 -t 10 | grep sender | tee -a "$OUTPUT"
+iperf3 -c 192.168.1.10 -t 10 | grep sender | tee -a "$OUTPUT"
 
 echo "" | tee -a "$OUTPUT"
 echo "--- NFS Write ---" | tee -a "$OUTPUT"
