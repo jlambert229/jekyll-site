@@ -1,0 +1,55 @@
+/* Admonition styles — matches the Hugo Blowfish admonition shortcode */
+
+.admonition {
+  border-left: 4px solid;
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  background-color: #f8f9fa;
+}
+
+.admonition-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.admonition-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tip */
+.admonition-tip {
+  border-left-color: #28a745;
+  background-color: #f0faf3;
+}
+
+/* Note */
+.admonition-note {
+  border-left-color: #6c757d;
+  background-color: #f8f9fa;
+}
+
+/* Warning */
+.admonition-warning {
+  border-left-color: #ffc107;
+  background-color: #fff9e6;
+}
+
+/* Danger */
+.admonition-danger {
+  border-left-color: #dc3545;
+  background-color: #fdf0f0;
+}
+
+/* Production */
+.admonition-production {
+  border-left-color: #6f42c1;
+  background-color: #f5f0ff;
+}
+
+/* Info */
+.admonition-info {
+  border-left-color: #17a2b8;
+  background-color: #eef9fb;
+}

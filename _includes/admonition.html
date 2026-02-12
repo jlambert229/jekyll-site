@@ -1,0 +1,37 @@
+{% comment %}
+  Admonition include — replaces Hugo's admonition shortcode.
+  Usage:
+    {% include admonition.html type="tip" title="Optional Title" content="Markdown content here." %}
+
+  Supported types: tip, note, warning, production, info, danger
+{% endcomment %}
+
+{% assign adm_type = include.type | default: "note" %}
+{% assign adm_title = include.title %}
+
+{% if adm_type == "tip" %}
+  {% assign adm_icon = "💡" %}
+  {% unless adm_title %}{% assign adm_title = "Tip" %}{% endunless %}
+{% elsif adm_type == "note" %}
+  {% assign adm_icon = "📝" %}
+  {% unless adm_title %}{% assign adm_title = "Note" %}{% endunless %}
+{% elsif adm_type == "warning" %}
+  {% assign adm_icon = "⚠️" %}
+  {% unless adm_title %}{% assign adm_title = "Warning" %}{% endunless %}
+{% elsif adm_type == "danger" %}
+  {% assign adm_icon = "🚨" %}
+  {% unless adm_title %}{% assign adm_title = "Danger" %}{% endunless %}
+{% elsif adm_type == "production" %}
+  {% assign adm_icon = "🏭" %}
+  {% unless adm_title %}{% assign adm_title = "In production" %}{% endunless %}
+{% elsif adm_type == "info" %}
+  {% assign adm_icon = "ℹ️" %}
+  {% unless adm_title %}{% assign adm_title = "Info" %}{% endunless %}
+{% endif %}
+
+<div class="admonition admonition-{{ adm_type }}" markdown="1">
+<div class="admonition-title">{{ adm_icon }} {{ adm_title }}</div>
+<div class="admonition-content" markdown="1">
+{{ include.content | markdownify }}
+</div>
+</div>

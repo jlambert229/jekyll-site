@@ -1,0 +1,119 @@
+###########################################################
+# Site Settings — Foggy Clouds (Beautiful Jekyll)
+###########################################################
+
+title: Foggy Clouds
+author: Jourdan Lambert
+description: "A blog about learning cloud and DevOps technology"
+url: "https://foggyclouds.io"
+baseurl: ""  # empty for custom domain or username.github.io
+remote_theme: daattali/beautiful-jekyll@6.0.1
+
+###############################################
+# --- Navigation bar links --- #
+###############################################
+
+navbar-links:
+  Posts: "posts"
+  Series: "series"
+  Tags: "tags"
+  About: "aboutme"
+
+################
+# --- Logo --- #
+################
+
+avatar: "/assets/img/logo.png"
+round-avatar: false
+
+#####################################
+# --- Footer social media links --- #
+#####################################
+
+social-network-links:
+  github: jlambert229
+  rss: true
+
+rss-description: "A blog about learning cloud and DevOps technology"
+
+###########################
+# --- General options --- #
+###########################
+
+share-links-active:
+  twitter: false
+  facebook: false
+  linkedin: true
+  reddit: true
+
+url-pretty: "foggyclouds.io"
+title-on-all-pages: true
+
+excerpt_length: 50
+feed_show_excerpt: true
+feed_show_tags: true
+post_search: true
+edit_page_button: false
+
+######################################
+# --- Colours --- #
+######################################
+
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+navbar-col: "#EAEAEA"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
+
+site-css:
+  - "/assets/css/admonitions.css"
+
+################
+# --- Misc --- #
+################
+
+date_format: "%-d %B %Y"
+timezone: "America/New_York"
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
+paginate: 10
+
+kramdown:
+  input: GFM
+
+# Default YAML values
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+      social-share: true
+      readtime: true
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+
+exclude:
+  - CHANGELOG.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-sitemap
