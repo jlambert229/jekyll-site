@@ -330,10 +330,16 @@ input, textarea, select {
 .share-btn-reddit { background: #c45e00; }
 
 /* --------------------------------------------------------------------------
-   Avatar image
+   Avatar image — remove border
    -------------------------------------------------------------------------- */
+.avatar-container .avatar-img-border {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
 .avatar-container .avatar-img {
-  border: 2px solid #333333;
+  border: none;
 }
 
 /* --------------------------------------------------------------------------
