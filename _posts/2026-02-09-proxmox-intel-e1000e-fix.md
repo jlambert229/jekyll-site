@@ -184,8 +184,8 @@ No kernel downgrade. No hardware replacement. One `post-up` line.
 
 ## Related
 
-- [Automated Proxmox Backups with Proxmox Backup Server](/post/proxmox-backup-server/) - When your backups *do* work, here's how to automate them
-- [Proxmox Automated Install](/post/proxmox-automated-install/) - Reproducible installs for new nodes
+- [Automated Proxmox Backups with Proxmox Backup Server](/2026-02-08-proxmox-backup-server/) - When your backups *do* work, here's how to automate them
+- [Proxmox Automated Install](/2026-02-07-proxmox-automated-install/) - Reproducible installs for new nodes
 
 ---
 

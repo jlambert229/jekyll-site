@@ -261,14 +261,14 @@ terraform fmt -check -recursive  # Exits non-zero if files need formatting
 
 ## What's Next
 
-This works, but everything is hardcoded. [mk2](/post/terraform-vsphere-vm-mk2/) introduces
+This works, but everything is hardcoded. [mk2](/2022-01-19-terraform-vsphere-vm-mk2/) introduces
 variables to make the deployment reusable.
 
 ---
 
 ## Related
 
-- [Packer for golden images](/post/packer-getting-started/) - Build VM templates with Packer, deploy them with Terraform
+- [Packer for golden images](/2022-01-07-packer-getting-started/) - Build VM templates with Packer, deploy them with Terraform
 
 ## References
 

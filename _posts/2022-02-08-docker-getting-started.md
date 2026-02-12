@@ -82,8 +82,8 @@ sudo systemctl restart docker
 
 ## Related
 
-- [Docker Images Basics](/post/docker-images-basics/) - Pull, run, mount volumes, serve a site
-- [Docker Image Layering](/post/docker-image-layering/) - How layers work, building custom images
+- [Docker Images Basics](/2022-02-08-docker-images-basics/) - Pull, run, mount volumes, serve a site
+- [Docker Image Layering](/2022-02-24-docker-image-layering/) - How layers work, building custom images
 
 ## References
 

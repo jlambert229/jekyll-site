@@ -77,7 +77,7 @@ flux get helmreleases -A | rg -v 'True'
 <div class="admonition-title">⚠️ Backup first</div>
 <div class="admonition-content" markdown="1">
 
-Take a [Velero backup](/post/k8s-velero-backups/) before upgrading. If the upgrade goes wrong, you want to restore workloads to a fresh cluster, not debug a half-upgraded one.
+Take a [Velero backup](/2026-02-08-k8s-velero-backups/) before upgrading. If the upgrade goes wrong, you want to restore workloads to a fresh cluster, not debug a half-upgraded one.
 
 ```bash
 velero backup create pre-upgrade-$(date +%Y%m%d) \
@@ -327,7 +327,7 @@ If the cluster is unrecoverable after an upgrade, don't be precious about it. Re
 1. `terraform destroy` — Remove all VMs
 2. Revert `talos_version` in `terraform.tfvars` to the known-good version
 3. `terraform apply` — Fresh cluster
-4. [Restore from Velero](/post/k8s-velero-backups/#disaster-recovery-new-cluster)
+4. [Restore from Velero](/2026-02-08-k8s-velero-backups/#disaster-recovery-new-cluster)
 
 The whole cycle — destroy, rebuild, restore — takes about 30 minutes with Terraform and Velero. That's why you take backups before upgrading.
 
@@ -416,10 +416,10 @@ Five minutes of reading prevents thirty minutes of debugging. The Talos team wri
 
 ## What's Next
 
-- [Talos Day-2 Operations](/post/k8s-talos-operations/) — etcd management, node replacement, config patches, troubleshooting
-- [Deploy the cluster](/post/k8s-talos-proxmox-deploy/) — If you haven't built the cluster yet
-- [Velero Backups](/post/k8s-velero-backups/) — Disaster recovery before you need it
-- [Cluster Autoscaling](/post/k8s-talos-autoscaling/) — HPA, VPA, and node autoscaling for Talos
+- [Talos Day-2 Operations](/2026-02-11-k8s-talos-operations/) — etcd management, node replacement, config patches, troubleshooting
+- [Deploy the cluster](/2026-02-08-k8s-talos-proxmox-deploy/) — If you haven't built the cluster yet
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) — Disaster recovery before you need it
+- [Cluster Autoscaling](/2026-02-11-k8s-talos-autoscaling/) — HPA, VPA, and node autoscaling for Talos
 
 ---
 

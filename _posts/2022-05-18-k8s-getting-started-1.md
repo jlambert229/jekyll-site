@@ -37,7 +37,7 @@ This part is boring but critical. You're preparing the OS before installing Kube
 
 > *"The boring parts are the foundations. Skip the boring parts and the interesting parts become impossible."* - SRE wisdom
 
-Part 1: prep all nodes (control plane and workers). [Part 2](/post/k8s-getting-started-2/): actually build the cluster. *"Great shot, kid. That was one in a million."* - Star Wars. Skipping prep steps is the opposite: failure is almost guaranteed.
+Part 1: prep all nodes (control plane and workers). [Part 2](/2022-05-18-k8s-getting-started-2/): actually build the cluster. *"Great shot, kid. That was one in a million."* - Star Wars. Skipping prep steps is the opposite: failure is almost guaranteed.
 
 Lab setup: 3 Ubuntu VMs (2 vCPU, 4 GB RAM, 50 GB disk, static IPs). Adjust for your environment.
 
@@ -269,7 +269,7 @@ cat /etc/apt/sources.list.d/kubernetes.list
 ## Run All Steps on All Nodes
 
 Every command in this article needs to run on **every** node in the cluster - control plane
-and workers alike. *"All of this has happened before, and all of this will happen again."* - Battlestar Galactica. Run the same steps on every node. Consistency is survival. [Part 2](/post/k8s-getting-started-2/) covers the node-specific steps.
+and workers alike. *"All of this has happened before, and all of this will happen again."* - Battlestar Galactica. Run the same steps on every node. Consistency is survival. [Part 2](/2022-05-18-k8s-getting-started-2/) covers the node-specific steps.
 
 > *"Symmetry kills surprises. If all nodes start from the same baseline, failures are predictable."* - Kubernetes deployment principle
 
@@ -288,9 +288,9 @@ mistakes happen.
 
 ## Related
 
-- [Part 2: Cluster init with kubeadm](/post/k8s-getting-started-2/) - Initialize controller, add workers, install Calico
-- [K8s Homelab Infrastructure](/post/k8s-homelab-infra/) - MetalLB, Traefik, NFS CSI after your cluster is up
-- [Talos + Terraform cluster](/post/k8s-talos-proxmox-deploy/) - Alternative: immutable nodes, no manual prep
+- [Part 2: Cluster init with kubeadm](/2022-05-18-k8s-getting-started-2/) - Initialize controller, add workers, install Calico
+- [K8s Homelab Infrastructure](/2026-02-08-k8s-homelab-infra/) - MetalLB, Traefik, NFS CSI after your cluster is up
+- [Talos + Terraform cluster](/2026-02-08-k8s-talos-proxmox-deploy/) - Alternative: immutable nodes, no manual prep
 
 ## References
 

@@ -96,9 +96,9 @@ k8s-vaultwarden/
 ## Prerequisites
 
 From previous posts, you need:
-- [Kubernetes cluster](/post/k8s-talos-proxmox-deploy/) (Talos on Proxmox)
-- [Traefik ingress](/post/k8s-homelab-infra/) with LoadBalancer IP
-- [cert-manager](/post/k8s-homelab-infra/) for TLS certificates
+- [Kubernetes cluster](/2026-02-08-k8s-talos-proxmox-deploy/) (Talos on Proxmox)
+- [Traefik ingress](/2026-02-08-k8s-homelab-infra/) with LoadBalancer IP
+- [cert-manager](/2026-02-08-k8s-homelab-infra/) for TLS certificates
 - DNS entry: `vault.media.lan → <TRAEFIK_IP>`
 
 <div class="admonition admonition-tip" markdown="1">
@@ -649,7 +649,7 @@ You have self-hosted password management running on your homelab. No subscriptio
 
 - **Cloudflare Tunnel** - Expose Vaultwarden securely without port forwarding
 - **Tailscale** - Access from anywhere via encrypted mesh VPN
-- **Automated backups** - Integrate with [Velero](/post/k8s-velero-backups/) for cluster-level backup
+- **Automated backups** - Integrate with [Velero](/2026-02-08-k8s-velero-backups/) for cluster-level backup
 - **Multi-user** - Invite family members, share passwords via Organizations
 - **Hardware key enforcement** - Require YubiKey for all logins
 
@@ -659,9 +659,9 @@ The core setup is production-ready. Migrate your passwords and delete your 1Pass
 
 ## Related
 
-- [Pi-hole on Synology](/post/pihole-synology-docker/) - Same Docker-on-NAS pattern, different use case
-- [K8s Homelab Infrastructure](/post/k8s-homelab-infra/) - Prerequisites: Traefik, cert-manager, LoadBalancer
-- [Velero Backups](/post/k8s-velero-backups/) - Backup the PVC; password databases are critical
+- [Pi-hole on Synology](/2026-02-08-pihole-synology-docker/) - Same Docker-on-NAS pattern, different use case
+- [K8s Homelab Infrastructure](/2026-02-08-k8s-homelab-infra/) - Prerequisites: Traefik, cert-manager, LoadBalancer
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) - Backup the PVC; password databases are critical
 
 ## References
 

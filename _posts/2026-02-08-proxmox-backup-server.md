@@ -619,9 +619,9 @@ You have automated Proxmox backups with deduplication, compression, and retentio
 - **Offsite replication** - Sync datastore to a remote PBS instance (rsync over SSH)
 - **Encrypted backups** - PBS supports client-side encryption (Proxmox encrypts before sending)
 - **S3 upload** - Push backups to Backblaze B2 for geographic redundancy
-- **Monitoring integration** - Alert on failed backups via [Uptime Kuma](/post/k8s-uptime-kuma/)
+- **Monitoring integration** - Alert on failed backups via [Uptime Kuma](/2026-02-08-k8s-uptime-kuma/)
 
-**Related:** [Velero for Kubernetes](/post/k8s-velero-backups/) - Cluster-level backups; [Ansible Proxmox ops](/post/ansible-proxmox-ops/) - Automate vzdump schedules.
+**Related:** [Velero for Kubernetes](/2026-02-08-k8s-velero-backups/) - Cluster-level backups; [Ansible Proxmox ops](/2026-02-09-ansible-proxmox-ops/) - Automate vzdump schedules.
 
 The core setup is production-ready. Sleep better knowing your homelab is recoverable.
 

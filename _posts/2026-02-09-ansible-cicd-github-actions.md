@@ -184,4 +184,4 @@ strict: true
 
 - [ansible-lint documentation](https://ansible.readthedocs.io/projects/lint/)
 - [Ansible check mode](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html#cmdoption-ansible-playbook-C)
-- [Managing Proxmox with Ansible](/post/ansible-proxmox-ops/)
+- [Managing Proxmox with Ansible](/2026-02-09-ansible-proxmox-ops/)

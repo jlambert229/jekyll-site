@@ -622,8 +622,8 @@ The core workflow works. Baseline, test, compare. Find bottlenecks before they f
 
 ## Related
 
-- [Media Stack on K8s](/post/k8s-media-stack/) - Plex buffering is often a network benchmark problem
-- [Proxmox Backup Server](/post/proxmox-backup-server/) - NFS throughput matters for backup performance
+- [Media Stack on K8s](/2026-02-08-k8s-media-stack/) - Plex buffering is often a network benchmark problem
+- [Proxmox Backup Server](/2026-02-08-proxmox-backup-server/) - NFS throughput matters for backup performance
 
 ## References
 

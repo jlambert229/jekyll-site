@@ -187,8 +187,8 @@ can connect and inspect the VM state.
 
 ## Related
 
-- [Terraform and vSphere](/post/terraform-vsphere-vm-mk1/) - Packer builds templates; Terraform deploys VMs from them
-- [Proxmox Automated Install](/post/proxmox-automated-install/) - Answer-file automation for homelab hypervisors
+- [Terraform and vSphere](/2022-01-14-terraform-vsphere-vm-mk1/) - Packer builds templates; Terraform deploys VMs from them
+- [Proxmox Automated Install](/2026-02-07-proxmox-automated-install/) - Answer-file automation for homelab hypervisors
 
 ## References
 

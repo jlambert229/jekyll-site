@@ -33,7 +33,7 @@ Velero gives you:
 - **Cross-cluster restore** - Rebuild on new hardware
 - **Selective recovery** - Restore one app or the whole cluster
 
-This complements [per-app backups](/post/k8s-media-stack/#backups). Velero captures the Kubernetes layer (manifests, volumes). App backups capture internal state (databases, configs).
+This complements [per-app backups](/2026-02-08-k8s-media-stack/#backups). Velero captures the Kubernetes layer (manifests, volumes). App backups capture internal state (databases, configs).
 
 > *"Backups are worthless until you've restored from them. Test restores before you need them."* - Disaster recovery 101
 
@@ -451,7 +451,7 @@ kubectl get pods -n media -l app.kubernetes.io/name=sonarr
 
 **Scenario:** Entire cluster lost (hardware failure, etcd corruption).
 
-1. **Build new cluster** - Use [k8s-deploy Terraform repo](/post/k8s-talos-proxmox-deploy/)
+1. **Build new cluster** - Use [k8s-deploy Terraform repo](/2026-02-08-k8s-talos-proxmox-deploy/)
 2. **Install foundation** - MetalLB, Traefik, NFS CSI, Velero (same as original)
 3. **Point Velero at existing backups:**
 
@@ -643,7 +643,7 @@ I ran Velero backups for four months. Never tested a restore. Then a bad Helm up
 
 ### 2. Separate App-Level and Cluster-Level Backups
 
-Velero backs up Kubernetes state. [Per-app backups](/post/k8s-media-stack/#backups) back up internal databases. You need both.
+Velero backs up Kubernetes state. [Per-app backups](/2026-02-08-k8s-media-stack/#backups) back up internal databases. You need both.
 
 True story: I restored Sonarr from Velero. The Deployment, Service, PVC - all back. Sonarr started. Opened the UI. Zero shows. Zero history. The PVC had the right permissions but the SQLite database was from *before* I'd added anything. Velero restored the empty volume. App-level backups would have restored the actual database. I had to re-add 200+ series. I am still finding things I forgot to re-add. Both layers. Always both.
 
@@ -669,7 +669,7 @@ You have disaster recovery for your Kubernetes cluster. Restore individual apps 
 
 - **Off-site backups** - Sync MinIO to Backblaze B2 or AWS S3 for geographic redundancy
 - **Pre/post hooks** - Quiesce databases before backup (flush writes, snapshot consistency)
-- **Monitoring integration** - Alert on failed backups via [Uptime Kuma](/post/k8s-uptime-kuma/)
+- **Monitoring integration** - Alert on failed backups via [Uptime Kuma](/2026-02-08-k8s-uptime-kuma/)
 - **Immutable backups** - Enable S3 object lock to prevent ransomware deletion
 
 The core setup is production-ready. Sleep better knowing you can rebuild in minutes.

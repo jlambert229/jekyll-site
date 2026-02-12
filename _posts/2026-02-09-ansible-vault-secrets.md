@@ -175,6 +175,6 @@ Keep structure (keys, variable names) in plain `proxmox_hosts.yml`. Put values i
 ## References
 
 - [Managing secrets with Ansible Vault](https://docs.ansible.com/ansible/latest/vault_guide/index.html)
-- [Managing Proxmox with Ansible](/post/ansible-proxmox-ops/) - Parent article
-- [CI/CD with GitHub Actions](/post/ansible-cicd-github-actions/) - Passing vault password in CI
-- [Scheduled Ansible runs](/post/ansible-scheduled-runs/) - Cron needs `--vault-password-file`
+- [Managing Proxmox with Ansible](/2026-02-09-ansible-proxmox-ops/) - Parent article
+- [CI/CD with GitHub Actions](/2026-02-09-ansible-cicd-github-actions/) - Passing vault password in CI
+- [Scheduled Ansible runs](/2026-02-09-ansible-scheduled-runs/) - Cron needs `--vault-password-file`

@@ -17,7 +17,7 @@ Pulling images, running containers, mounting volumes, and serving a website with
 
 ![Dev vs Production - When your code hits someone else's machine](/assets/img/memes/dev-production.png)
 
-This continues from [Getting Started with Docker](/post/docker-getting-started/). Docker should already be installed and running.
+This continues from [Getting Started with Docker](/2022-02-08-docker-getting-started/). Docker should already be installed and running.
 
 I ran `docker run nginx` once. It worked. I closed the laptop. The next day: "where's my site?" Container was gone. I hadn't realized `docker run` creates a new container each time and the old one stops when you close the session. Volumes and restart policies exist for a reason. Learn them before you need them.
 
@@ -146,14 +146,14 @@ commands, and don't depend on a specific host directory existing.
 
 ## What's Next
 
-You can pull, run, and mount volumes. Next: [how Docker image layering works](/post/docker-image-layering/) and building custom images from running containers.
+You can pull, run, and mount volumes. Next: [how Docker image layering works](/2022-02-24-docker-image-layering/) and building custom images from running containers.
 
 ---
 
 ## Related
 
-- [Getting Started with Docker](/post/docker-getting-started/) - Installation
-- [Docker Image Layering](/post/docker-image-layering/) - Build custom images, understand layers
+- [Getting Started with Docker](/2022-02-08-docker-getting-started/) - Installation
+- [Docker Image Layering](/2022-02-24-docker-image-layering/) - Build custom images, understand layers
 
 ## References
 

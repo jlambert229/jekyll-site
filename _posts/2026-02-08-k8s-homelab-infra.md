@@ -296,9 +296,9 @@ kubectl get svc -n traefik
 
 ## Related
 
-- [Media Stack on Kubernetes](/post/k8s-media-stack/) - Deploy Plex, Sonarr, Radarr on this foundation
-- [Deploy cluster with Talos + Terraform](/post/k8s-talos-proxmox-deploy/) - Automated cluster provisioning
-- [GitOps with Flux](/post/k8s-flux-gitops/) - Git as source of truth
-- [Velero Backups](/post/k8s-velero-backups/) - Cluster-level disaster recovery
+- [Media Stack on Kubernetes](/2026-02-08-k8s-media-stack/) - Deploy Plex, Sonarr, Radarr on this foundation
+- [Deploy cluster with Talos + Terraform](/2026-02-08-k8s-talos-proxmox-deploy/) - Automated cluster provisioning
+- [GitOps with Flux](/2026-02-08-k8s-flux-gitops/) - Git as source of truth
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) - Cluster-level disaster recovery
 
 [MetalLB](https://metallb.io/) • [Traefik](https://doc.traefik.io/traefik/) • [NFS CSI](https://github.com/kubernetes-csi/csi-driver-nfs) • [Source](https://github.com/YOUR-USERNAME/k8s-media-stack)

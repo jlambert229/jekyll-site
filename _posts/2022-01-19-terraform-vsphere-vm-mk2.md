@@ -19,7 +19,7 @@ Improving the mk1 vSphere deployment with variables, file organization, and tfva
 
 ## Problem
 
-The [mk1](/post/terraform-vsphere-vm-mk1/) deployment works but everything is hardcoded.
+The [mk1](/2022-01-14-terraform-vsphere-vm-mk1/) deployment works but everything is hardcoded.
 Changing an IP, VM name, or CPU count means editing `main.tf` directly. Not reusable.
 
 ## Solution
@@ -245,7 +245,7 @@ Saves time versus running `plan` repeatedly to check if an expression evaluates 
 ## What's Next
 
 Variables make the deployment reusable, but the code is still in one project.
-[mk3](/post/terraform-vsphere-vm-mk3/) packages it into a Terraform module for sharing and
+[mk3](/2022-01-26-terraform-vsphere-vm-mk3/) packages it into a Terraform module for sharing and
 composition.
 
 ---

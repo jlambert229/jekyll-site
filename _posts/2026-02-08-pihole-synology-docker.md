@@ -648,8 +648,8 @@ The core setup is production-ready. These are optimizations for when you're bore
 
 ## Related
 
-- [Vaultwarden on Kubernetes](/post/vaultwarden-self-hosted-passwords/) - Another self-hosted service; uses same Traefik + cert-manager pattern
-- [K8s Homelab Infrastructure](/post/k8s-homelab-infra/) - Local DNS records for `plex.media.lan`, `*.homelab.lan`
+- [Vaultwarden on Kubernetes](/2026-02-08-vaultwarden-self-hosted-passwords/) - Another self-hosted service; uses same Traefik + cert-manager pattern
+- [K8s Homelab Infrastructure](/2026-02-08-k8s-homelab-infra/) - Local DNS records for `plex.media.lan`, `*.homelab.lan`
 
 ## References
 

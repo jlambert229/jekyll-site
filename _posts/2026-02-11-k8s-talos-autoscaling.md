@@ -491,10 +491,10 @@ The 300-second cooldown is the minimum that prevents this. I initially set it to
 
 ## What's Next
 
-- [Talos Day-2 Operations](/post/k8s-talos-operations/) - Node management, etcd, troubleshooting
-- [Upgrade Talos and Kubernetes](/post/k8s-talos-upgrades/) - Rolling upgrade procedures
-- [Deploy the cluster](/post/k8s-talos-proxmox-deploy/) - Initial Terraform setup
-- [Velero Backups](/post/k8s-velero-backups/) - Disaster recovery
+- [Talos Day-2 Operations](/2026-02-11-k8s-talos-operations/) - Node management, etcd, troubleshooting
+- [Upgrade Talos and Kubernetes](/2026-02-11-k8s-talos-upgrades/) - Rolling upgrade procedures
+- [Deploy the cluster](/2026-02-08-k8s-talos-proxmox-deploy/) - Initial Terraform setup
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) - Disaster recovery
 
 ---
 

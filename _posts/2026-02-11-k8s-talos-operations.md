@@ -136,7 +136,7 @@ For a single control plane homelab, you'll see one member. For HA (3 CPs), you'l
 <div class="admonition-title">⚠️ Warning</div>
 <div class="admonition-content" markdown="1">
 
-A single control plane node means a single etcd member. If that node dies, etcd is gone. For a homelab that's acceptable — you rebuild from Terraform and restore from [Velero](/post/k8s-velero-backups/). For anything you can't afford to lose, run 3 control plane nodes.
+A single control plane node means a single etcd member. If that node dies, etcd is gone. For a homelab that's acceptable — you rebuild from Terraform and restore from [Velero](/2026-02-08-k8s-velero-backups/). For anything you can't afford to lose, run 3 control plane nodes.
 
 </div>
 </div>
@@ -184,7 +184,7 @@ talosctl bootstrap --recover-from=/path/to/etcd-snapshot.db \
 <div class="admonition-title">ℹ️ Info</div>
 <div class="admonition-content" markdown="1">
 
-etcd recovery replays the snapshot into a fresh instance. Kubernetes picks up where the snapshot left off. PVCs will reference volumes that may or may not still exist depending on your storage backend. This is why you need both etcd snapshots AND [Velero backups](/post/k8s-velero-backups/).
+etcd recovery replays the snapshot into a fresh instance. Kubernetes picks up where the snapshot left off. PVCs will reference volumes that may or may not still exist depending on your storage backend. This is why you need both etcd snapshots AND [Velero backups](/2026-02-08-k8s-velero-backups/).
 
 </div>
 </div>
@@ -554,10 +554,10 @@ SSH encourages poking around: `cd /var/log`, `cat this`, `grep that`. `talosctl`
 
 ## What's Next
 
-- [Upgrade Talos and Kubernetes](/post/k8s-talos-upgrades/) — Rolling upgrade procedures
-- [Deploy the cluster](/post/k8s-talos-proxmox-deploy/) — Initial setup with Terraform
-- [Velero Backups](/post/k8s-velero-backups/) — Cluster-level disaster recovery
-- [Cluster Autoscaling](/post/k8s-talos-autoscaling/) — HPA, VPA, and node autoscaling
+- [Upgrade Talos and Kubernetes](/2026-02-11-k8s-talos-upgrades/) — Rolling upgrade procedures
+- [Deploy the cluster](/2026-02-08-k8s-talos-proxmox-deploy/) — Initial setup with Terraform
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) — Cluster-level disaster recovery
+- [Cluster Autoscaling](/2026-02-11-k8s-talos-autoscaling/) — HPA, VPA, and node autoscaling
 
 ---
 

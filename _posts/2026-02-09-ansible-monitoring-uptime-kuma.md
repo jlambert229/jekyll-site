@@ -37,7 +37,7 @@ The cron job exits non-zero. Nothing notifies you. Next week you realize the hos
 
 ## The solution: Push monitor
 
-[Uptime Kuma](/post/k8s-uptime-kuma/) has a **Push** (heartbeat) monitor type. Your script sends an HTTP request to a unique URL when it succeeds. If Uptime Kuma doesn't receive a push within the heartbeat interval, it alerts.
+[Uptime Kuma](/2026-02-08-k8s-uptime-kuma/) has a **Push** (heartbeat) monitor type. Your script sends an HTTP request to a unique URL when it succeeds. If Uptime Kuma doesn't receive a push within the heartbeat interval, it alerts.
 
 ```
 Cron runs site.yml → Success → curl HEARTBEAT_URL → Uptime Kuma records "up"
@@ -129,6 +129,6 @@ Each has its own URL. Each gets its own alert. Lets you distinguish "patching fa
 ## References
 
 - [Uptime Kuma Push monitor](https://github.com/louislam/uptime-kuma/wiki/Push-Based-Monitoring)
-- [Uptime Kuma on Kubernetes](/post/k8s-uptime-kuma/)
-- [Scheduled Ansible runs](/post/ansible-scheduled-runs/)
-- [Managing Proxmox with Ansible](/post/ansible-proxmox-ops/)
+- [Uptime Kuma on Kubernetes](/2026-02-08-k8s-uptime-kuma/)
+- [Scheduled Ansible runs](/2026-02-09-ansible-scheduled-runs/)
+- [Managing Proxmox with Ansible](/2026-02-09-ansible-proxmox-ops/)

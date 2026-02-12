@@ -25,7 +25,7 @@ numbers and URLs have been updated. Check the
 </div>
 </div>
 
-This continues from [Part 1](/post/k8s-getting-started-1/). All prerequisite steps should
+This continues from [Part 1](/2022-05-18-k8s-getting-started-1/). All prerequisite steps should
 already be complete on every node.
 
 ![k8s-lab-image](/assets/img/k8s-lab.png)
@@ -269,7 +269,7 @@ for scheduling decisions later (e.g., `node-type=gpu` for GPU workloads).
 
 The cluster is running. From here: deploy a workload, set up an ingress controller, or explore
 Calico network policies to control pod-to-pod traffic. For a more automated approach to cluster
-lifecycle, see [deploying with Talos and Terraform](/post/k8s-talos-proxmox-deploy/).
+lifecycle, see [deploying with Talos and Terraform](/2026-02-08-k8s-talos-proxmox-deploy/).
 
 ---
 

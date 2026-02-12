@@ -19,7 +19,7 @@ Packaging the mk2 vSphere deployment into a reusable Terraform module.
 
 ## Problem
 
-The [mk2](/post/terraform-vsphere-vm-mk2/) deployment uses variables, but the code lives in one
+The [mk2](/2022-01-19-terraform-vsphere-vm-mk2/) deployment uses variables, but the code lives in one
 project. If another team wants to use it, or you want to deploy a VM alongside other resources
 (DNS records, load balancers), you need to copy/paste. Modules solve this.
 

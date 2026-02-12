@@ -14,7 +14,7 @@ categories:
   - Homelab Infrastructure
 readtime: true
 ---
-The [automated Proxmox install](/post/proxmox-automated-install/) gets you a configured host from a USB stick. But what happens in month two? Package updates, SSH hardening drift, backup schedule changes. Manual changes on a single host become tribal knowledge. Add a second node and you're copy-pasting configs.
+The [automated Proxmox install](/2026-02-07-proxmox-automated-install/) gets you a configured host from a USB stick. But what happens in month two? Package updates, SSH hardening drift, backup schedule changes. Manual changes on a single host become tribal knowledge. Add a second node and you're copy-pasting configs.
 
 Ansible picks up where first-boot leaves off. *"The spice must flow."* - Dune. So must your config. Automate it.
 
@@ -32,7 +32,7 @@ I ran three Proxmox hosts (Dell OptiPlex 7080, plus two older boxes). Each had d
 - `fail2ban` - different `bantime` on each, one had `maxretry` at 3 (locking me out constantly)
 - UFW - one host forgot `allow 3128` so vzdump-to-PBS failed silently; another had `allow 8006` from the wrong subnet
 - Backup retention - one kept 90 days (ate 800 GB), the others 30; nobody could remember which was "correct"
-- Package versions - one missed `6.8.12-9-pve`, the kernel that fixed the [Intel e1000e NIC hang](/post/proxmox-intel-e1000e-fix/). That host kept dropping off the network during backups.
+- Package versions - one missed `6.8.12-9-pve`, the kernel that fixed the [Intel e1000e NIC hang](/2026-02-09-proxmox-intel-e1000e-fix/). That host kept dropping off the network during backups.
 
 Reconciling them took a weekend. I should've been running Ansible from day one.
 
@@ -192,7 +192,7 @@ ap playbooks/backup.yml
 
 The script discovers the host (or uses the IP you provide), adds it to inventory with the same config as existing hosts, and runs `site.yml`. New host gets patching, security, and backups in one pass.
 
-**Prerequisite:** The new host must have your SSH key. Use [proxmox-automated-install](/post/proxmox-automated-install/) first-boot or manual setup.
+**Prerequisite:** The new host must have your SSH key. Use [proxmox-automated-install](/2026-02-07-proxmox-automated-install/) first-boot or manual setup.
 
 **Manual** (if you prefer):
 
@@ -282,10 +282,10 @@ Started with 90-day daily retention. Hit 2 TB on the NAS in six weeks. My spouse
 You have declarative config for Proxmox hosts. Patching, security, and backups in version control. Add a host by running one script.
 
 **Optional enhancements:**
-- [Vault for secrets](/post/ansible-vault-secrets/) - Encrypt API keys, backup passwords in `group_vars/secrets.yml`
-- [CI/CD with GitHub Actions](/post/ansible-cicd-github-actions/) - `ansible-lint` and syntax check on every PR
-- [Scheduled runs](/post/ansible-scheduled-runs/) - Cron `patch.yml` weekly
-- [Monitoring with Uptime Kuma](/post/ansible-monitoring-uptime-kuma/) - Alert if playbooks fail (Push/heartbeat monitor)
+- [Vault for secrets](/2026-02-09-ansible-vault-secrets/) - Encrypt API keys, backup passwords in `group_vars/secrets.yml`
+- [CI/CD with GitHub Actions](/2026-02-09-ansible-cicd-github-actions/) - `ansible-lint` and syntax check on every PR
+- [Scheduled runs](/2026-02-09-ansible-scheduled-runs/) - Cron `patch.yml` weekly
+- [Monitoring with Uptime Kuma](/2026-02-09-ansible-monitoring-uptime-kuma/) - Alert if playbooks fail (Push/heartbeat monitor)
 
 First-boot gets the host online. Ansible keeps it consistent. Same result every time.
 
@@ -294,6 +294,6 @@ First-boot gets the host online. Ansible keeps it consistent. Same result every 
 ## References
 
 - [proxmox-ops on GitHub](https://github.com/YOUR-USERNAME/proxmox-ops)
-- [Automated Proxmox Install](/post/proxmox-automated-install/) - First-boot setup
+- [Automated Proxmox Install](/2026-02-07-proxmox-automated-install/) - First-boot setup
 - [Ansible best practices](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
 - [Proxmox vzdump](https://pve.proxmox.com/pve-docs/vzdump.1.html) - Backup format and options

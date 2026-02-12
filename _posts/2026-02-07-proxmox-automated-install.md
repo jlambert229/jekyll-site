@@ -519,9 +519,9 @@ For ongoing management (backups, patching, security auditing), Ansible picks up 
 
 ## Related
 
-- [Managing Proxmox with Ansible](/post/ansible-proxmox-ops/) - Patching, backups, security after first-boot
-- [Intel e1000e NIC fix](/post/proxmox-intel-e1000e-fix/) - If your Dell OptiPlex drops off the network
-- [Proxmox Backup Server](/post/proxmox-backup-server/) - Automated VM backups
+- [Managing Proxmox with Ansible](/2026-02-09-ansible-proxmox-ops/) - Patching, backups, security after first-boot
+- [Intel e1000e NIC fix](/2026-02-09-proxmox-intel-e1000e-fix/) - If your Dell OptiPlex drops off the network
+- [Proxmox Backup Server](/2026-02-08-proxmox-backup-server/) - Automated VM backups
 
 ## References
 

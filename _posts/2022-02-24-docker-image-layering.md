@@ -13,7 +13,7 @@ readtime: true
 Building custom Docker images from running containers and understanding how layers work.
 <!--more-->
 
-This continues from [Docker Images Basics](/post/docker-images-basics/).
+This continues from [Docker Images Basics](/2022-02-08-docker-images-basics/).
 
 > *"Every layer is permanent. Once committed, it's in the history forever. Plan your layers."* - Docker image hygiene
 
@@ -271,8 +271,8 @@ removed first with `docker system df`.
 
 ## References
 
-- [Docker Images Basics](/post/docker-images-basics/) - Prerequisite: pull, run, volumes
-- [Getting Started with Docker](/post/docker-getting-started/) - Installation
+- [Docker Images Basics](/2022-02-08-docker-images-basics/) - Prerequisite: pull, run, volumes
+- [Getting Started with Docker](/2022-02-08-docker-getting-started/) - Installation
 - [Docker CLI reference](https://docs.docker.com/reference/cli/docker/)
 - [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
 

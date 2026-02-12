@@ -18,7 +18,7 @@ Quick reference for deploying media apps on K8s using `bjw-s/app-template`.
 
 *"Stay frosty."* - Aliens. Media stacks have many moving parts. Same Helm chart template, different values. Stay organized.
 
-Prerequisites: [K8s infrastructure](/post/k8s-homelab-infra/) (MetalLB, Traefik, NFS CSI)
+Prerequisites: [K8s infrastructure](/2026-02-08-k8s-homelab-infra/) (MetalLB, Traefik, NFS CSI)
 
 > *"Same chart, different values. Standardization reduces cognitive load. You learn one pattern, apply it everywhere."* - Helm best practice
 
@@ -143,7 +143,7 @@ Use K8s DNS for inter-app communication: `<app>.media.svc.cluster.local:<port>`
 
 ## Next
 
-[GitOps with Flux](/post/k8s-flux-gitops/) - automate deployments from Git
+[GitOps with Flux](/2026-02-08-k8s-flux-gitops/) - automate deployments from Git
 
 ---
 

@@ -270,7 +270,7 @@ But if you're learning, if you care about security, or if your repo might ever b
 
 ## Related
 
-- [Ansible Vault](/post/ansible-vault-secrets/) - Encrypt secrets in Ansible; different use case, same principle
-- [Velero Backups](/post/k8s-velero-backups/) - Backup Vault data and Consul config
+- [Ansible Vault](/2026-02-09-ansible-vault-secrets/) - Encrypt secrets in Ansible; different use case, same principle
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) - Backup Vault data and Consul config
 
 Full implementation: [k8s-media-stack](https://github.com/YOUR-USERNAME/k8s-media-stack) (see `foundation/vault/`, `foundation/consul/`, `secrets/`, `backup/`)

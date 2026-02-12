@@ -20,7 +20,7 @@ Migrating a Helm-based media stack from imperative scripts to Flux GitOps. Same 
 
 ![Dev vs Production - Manual deploy.sh vs GitOps](/assets/img/memes/dev-production.png)
 
-This builds on the [media stack post](/post/k8s-media-stack/). The stack should already be
+This builds on the [media stack post](/2026-02-08-k8s-media-stack/). The stack should already be
 designed (or running). This article replaces the `deploy.sh` approach with Flux.
 
 ---
@@ -448,9 +448,9 @@ to verify before bootstrapping.
 
 ## Related
 
-- [Media Stack](/post/k8s-media-stack/) - What Flux deploys
-- [K8s Homelab Infrastructure](/post/k8s-homelab-infra/) - MetalLB, Traefik, NFS - the foundation layer
-- [Velero Backups](/post/k8s-velero-backups/) - Disaster recovery for GitOps-managed clusters
+- [Media Stack](/2026-02-08-k8s-media-stack/) - What Flux deploys
+- [K8s Homelab Infrastructure](/2026-02-08-k8s-homelab-infra/) - MetalLB, Traefik, NFS - the foundation layer
+- [Velero Backups](/2026-02-08-k8s-velero-backups/) - Disaster recovery for GitOps-managed clusters
 
 ## References
 

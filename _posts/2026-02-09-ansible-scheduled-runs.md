@@ -91,7 +91,7 @@ For homelab, a NAS or always-on Linux box works. The cron user needs:
 
 ## Vault password
 
-If you use [Ansible Vault](/post/ansible-vault-secrets/), the cron job needs the password:
+If you use [Ansible Vault](/2026-02-09-ansible-vault-secrets/), the cron job needs the password:
 
 ```bash
 export ANSIBLE_VAULT_PASSWORD_FILE=/etc/ansible/.vault-pass
@@ -128,7 +128,7 @@ fi
 exit $STATUS
 ```
 
-Or integrate with [monitoring](/post/ansible-monitoring-uptime-kuma/) (heartbeat on success, alert on missed heartbeat).
+Or integrate with [monitoring](/2026-02-09-ansible-monitoring-uptime-kuma/) (heartbeat on success, alert on missed heartbeat).
 
 ---
 
@@ -145,7 +145,7 @@ Run `patch.yml` weekly. Run `site.yml` when you change playbooks or add hosts. O
 
 ## What I learned
 
-> *"Automation without monitoring is blind. Add a heartbeat so you know when it stops beating."* - See [monitoring](/post/ansible-monitoring-uptime-kuma/)
+> *"Automation without monitoring is blind. Add a heartbeat so you know when it stops beating."* - See [monitoring](/2026-02-09-ansible-monitoring-uptime-kuma/)
 
 **Start with patch, not site.** I scheduled `site.yml` weekly. Full config every time. Overkill. Patching is the high-frequency need - packages drift constantly. Security and backup config change maybe once a quarter. Run patch weekly. Run site monthly. Or when you change things. Your cron will thank you.
 
@@ -157,5 +157,5 @@ Run `patch.yml` weekly. Run `site.yml` when you change playbooks or add hosts. O
 
 ## References
 
-- [Managing Proxmox with Ansible](/post/ansible-proxmox-ops/)
+- [Managing Proxmox with Ansible](/2026-02-09-ansible-proxmox-ops/)
 - [Patching role](https://github.com/YOUR-USERNAME/proxmox-ops) - `patching_reboot_policy`, `manual_patch`

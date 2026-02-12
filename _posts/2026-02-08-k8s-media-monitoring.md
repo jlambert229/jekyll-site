@@ -654,9 +654,9 @@ Before calling monitoring "done":
 
 ## Related
 
-- [Uptime Kuma](/post/k8s-uptime-kuma/) - Simpler: uptime checks, heartbeat monitors, status page
-- [Media Stack Complete](/post/k8s-media-stack-complete/) - Full deploy including this monitoring
-- [Media Stack basics](/post/k8s-media-stack/) - Plex, Sonarr, Radarr without Prometheus
+- [Uptime Kuma](/2026-02-08-k8s-uptime-kuma/) - Simpler: uptime checks, heartbeat monitors, status page
+- [Media Stack Complete](/2026-02-08-k8s-media-stack-complete/) - Full deploy including this monitoring
+- [Media Stack basics](/2026-02-08-k8s-media-stack/) - Plex, Sonarr, Radarr without Prometheus
 
 ## References
 
@@ -664,4 +664,4 @@ Before calling monitoring "done":
 - [kube-prometheus-stack chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
 - [Prometheus Alerting](https://prometheus.io/docs/alerting/latest/overview/)
 - [Grafana Provisioning](https://grafana.com/docs/grafana/latest/administration/provisioning/)
-- [Building a Kubernetes Media Stack](/post/k8s-media-stack-complete/)
+- [Building a Kubernetes Media Stack](/2026-02-08-k8s-media-stack-complete/)

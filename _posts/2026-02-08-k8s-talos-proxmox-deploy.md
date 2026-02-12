@@ -518,11 +518,11 @@ terraform destroy
 
 You have a working Kubernetes cluster. Next steps:
 
-- [Set up the foundation layer](/post/k8s-homelab-infra/) - MetalLB for LoadBalancer IPs,
+- [Set up the foundation layer](/2026-02-08-k8s-homelab-infra/) - MetalLB for LoadBalancer IPs,
   Traefik for ingress routing, NFS CSI for persistent storage
-- [Deploy a media stack](/post/k8s-media-stack/) - Plex, Sonarr, Radarr, and friends on top
+- [Deploy a media stack](/2026-02-08-k8s-media-stack/) - Plex, Sonarr, Radarr, and friends on top
   of that infrastructure using Helm
-- [Migrate to Flux GitOps](/post/k8s-flux-gitops/) - automated delivery from Git, no more
+- [Migrate to Flux GitOps](/2026-02-08-k8s-flux-gitops/) - automated delivery from Git, no more
   manual `helm upgrade`
 
 The cluster is API-managed end to end, so everything stays declarative.

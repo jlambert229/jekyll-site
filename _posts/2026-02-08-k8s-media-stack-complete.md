@@ -815,4 +815,4 @@ What I haven't covered:
 - [Source code for this post](https://github.com/YOUR-USERNAME/k8s-media-stack)
 - [bjw-s app-template chart](https://bjw-s-labs.github.io/helm-charts/docs/app-template/)
 - [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
-- [Talos Linux on Proxmox](/post/k8s-talos-proxmox-deploy/)
+- [Talos Linux on Proxmox](/2026-02-08-k8s-talos-proxmox-deploy/)
