@@ -1,5 +1,9 @@
 # Foggy Clouds — Jekyll
 
+![Jekyll](https://github.com/jlambert229/jekyll-site/actions/workflows/jekyll.yml/badge.svg)
+![pre-commit](https://github.com/jlambert229/jekyll-site/actions/workflows/pre-commit.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/jlambert229/jekyll-site)
+
 A blog about learning cloud and DevOps technology. Converted from Hugo (Blowfish theme) to Jekyll (Beautiful Jekyll theme).
 
 ## Setup
