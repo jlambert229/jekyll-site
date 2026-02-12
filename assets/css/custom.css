@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Foggy Clouds — Muted Orange Theme for Beautiful Jekyll
+   Ported from PaperMod custom.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Font stack — Helvetica / system sans-serif
+   -------------------------------------------------------------------------- */
+body {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-default .navbar-brand,
+.page-heading {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Orange accent palette
+   -------------------------------------------------------------------------- */
+:root {
+  --accent: #e8730c;
+  --accent-light: #f59e3f;
+  --accent-dark: #c45e00;
+}
+
+/* --------------------------------------------------------------------------
+   Page background & text
+   -------------------------------------------------------------------------- */
+body {
+  background-color: #111111;
+  color: #d4d4d4;
+}
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+a {
+  color: #e8730c;
+}
+
+a:hover,
+a:focus {
+  color: #f59e3f;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation bar
+   -------------------------------------------------------------------------- */
+.navbar-default {
+  background-color: #1a1a1a !important;
+  border-bottom: 2px solid #c45e00;
+}
+
+.navbar-default .navbar-brand {
+  color: #e8730c !important;
+  font-weight: 700;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #e0e0e0 !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #e8730c !important;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+  color: #e8730c !important;
+  background-color: transparent !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #e0e0e0;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #252525;
+}
+
+/* --------------------------------------------------------------------------
+   Post content area
+   -------------------------------------------------------------------------- */
+.blog-post,
+.post-preview {
+  background-color: #111111;
+}
+
+.post-preview {
+  border-bottom: 1px solid #333333;
+}
+
+.post-preview:last-child {
+  border-bottom: none;
+}
+
+.post-preview .post-title,
+.post-preview .post-subtitle,
+.blog-post .blog-post-title {
+  color: #e0e0e0;
+}
+
+.post-preview .post-title:hover {
+  color: #e8730c;
+}
+
+.post-entry-title a {
+  color: #e0e0e0;
+}
+
+.post-entry-title a:hover {
+  color: #e8730c;
+}
+
+.post-meta {
+  color: #a0a0a0;
+}
+
+/* --------------------------------------------------------------------------
+   Post content
+   -------------------------------------------------------------------------- */
+.blog-post {
+  color: #d4d4d4;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4 {
+  color: #e0e0e0;
+}
+
+.blog-post a {
+  color: #e8730c;
+}
+
+.blog-post a:hover {
+  color: #f59e3f;
+}
+
+/* Inline code */
+.blog-post code:not(pre code),
+code {
+  color: #e8730c;
+  background-color: #1c1c1c;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Code blocks */
+pre {
+  background-color: #1c1c1c !important;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  color: #d4d4d4;
+}
+
+pre code {
+  color: #d4d4d4;
+  background-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Blockquotes
+   -------------------------------------------------------------------------- */
+blockquote {
+  border-left: 4px solid #e8730c;
+  background-color: #1a1a1a;
+  color: #d4d4d4;
+  padding: 10px 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #333333;
+}
+
+table td {
+  border: 1px solid #333333;
+  color: #d4d4d4;
+}
+
+table tr:nth-child(even) {
+  background-color: #151515;
+}
+
+/* --------------------------------------------------------------------------
+   Tags
+   -------------------------------------------------------------------------- */
+.blog-tags a,
+.post-tags a {
+  background: #c45e00;
+  color: #ffffff !important;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.blog-tags a:hover,
+.post-tags a:hover {
+  background: #e8730c;
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+footer {
+  background-color: #1a1a1a !important;
+  border-top: 2px solid #c45e00;
+}
+
+footer a {
+  color: #e8730c;
+}
+
+footer a:hover {
+  color: #f59e3f;
+}
+
+footer .copyright {
+  color: #a0a0a0;
+}
+
+footer .theme-by {
+  color: #777777;
+}
+
+/* --------------------------------------------------------------------------
+   Page header / title area
+   -------------------------------------------------------------------------- */
+.intro-header {
+  background-color: #111111;
+}
+
+.page-heading,
+.post-heading h1,
+.page-heading h1 {
+  color: #e0e0e0;
+}
+
+.post-heading .post-subheading,
+.page-heading .post-subheading {
+  color: #a0a0a0;
+}
+
+.post-heading .post-meta {
+  color: #a0a0a0;
+}
+
+/* --------------------------------------------------------------------------
+   Pagination
+   -------------------------------------------------------------------------- */
+.pagination li a,
+.pagination li span {
+  background-color: #1a1a1a;
+  border-color: #333333;
+  color: #d4d4d4;
+}
+
+.pagination li a:hover {
+  background-color: #e8730c;
+  border-color: #e8730c;
+  color: #111111;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+  background-color: #e8730c;
+  border-color: #e8730c;
+  color: #111111;
+}
+
+/* --------------------------------------------------------------------------
+   Search input
+   -------------------------------------------------------------------------- */
+#beautifuljekyll-search-overlay input {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 2px solid #333333;
+}
+
+#beautifuljekyll-search-overlay input:focus {
+  border-color: #e8730c;
+}
+
+#beautifuljekyll-search-overlay {
+  background-color: rgba(17, 17, 17, 0.95);
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal rules
+   -------------------------------------------------------------------------- */
+hr {
+  border-top: 1px solid #333333;
+}
+
+/* --------------------------------------------------------------------------
+   Forms / inputs
+   -------------------------------------------------------------------------- */
+input, textarea, select {
+  background-color: #1a1a1a;
+  color: #d4d4d4;
+  border: 1px solid #333333;
+}
+
+/* --------------------------------------------------------------------------
+   Social share buttons
+   -------------------------------------------------------------------------- */
+.share-btn-twitter { background: #e8730c; }
+.share-btn-facebook { background: #c45e00; }
+.share-btn-linkedin { background: #e8730c; }
+.share-btn-reddit { background: #c45e00; }
+
+/* --------------------------------------------------------------------------
+   Avatar image
+   -------------------------------------------------------------------------- */
+.avatar-container .avatar-img {
+  border: 2px solid #333333;
+}
+
+/* --------------------------------------------------------------------------
+   Read time / word count
+   -------------------------------------------------------------------------- */
+.blog-post-meta,
+.post-meta-info {
+  color: #a0a0a0;
+}

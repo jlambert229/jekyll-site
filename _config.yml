@@ -56,22 +56,23 @@ post_search: true
 edit_page_button: false
 
 ######################################
-# --- Colours --- #
+# --- Colours (muted orange theme) --- #
 ######################################
 
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+page-col: "#111111"
+text-col: "#d4d4d4"
+link-col: "#e8730c"
+hover-col: "#f59e3f"
+navbar-col: "#1a1a1a"
+navbar-text-col: "#e0e0e0"
+navbar-border-col: "#333333"
+footer-col: "#1a1a1a"
+footer-text-col: "#a0a0a0"
+footer-link-col: "#e8730c"
+footer-hover-col: "#f59e3f"
 
 site-css:
+  - "/assets/css/custom.css"
   - "/assets/css/admonitions.css"
 
 ################

@@ -1,55 +1,91 @@
-/* Admonition styles — matches the Hugo Blowfish admonition shortcode */
+/* Admonition styles — dark theme (ported from PaperMod custom.css) */
 
 .admonition {
   border-left: 4px solid;
   border-radius: 4px;
-  padding: 1rem 1.2rem;
+  padding: 0.75rem 1rem;
   margin: 1.5rem 0;
-  background-color: #f8f9fa;
 }
 
 .admonition-title {
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.admonition-content {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.admonition-content p {
+  margin: 0;
 }
 
 .admonition-content p:last-child {
   margin-bottom: 0;
 }
 
+.admonition-content code {
+  font-size: 0.85em;
+}
+
 /* Tip */
 .admonition-tip {
-  border-left-color: #28a745;
-  background-color: #f0faf3;
+  border-left-color: #3fb950;
+  background: rgba(63, 185, 80, 0.08);
+}
+
+.admonition-tip .admonition-title {
+  color: #3fb950;
 }
 
 /* Note */
 .admonition-note {
-  border-left-color: #6c757d;
-  background-color: #f8f9fa;
+  border-left-color: #58a6ff;
+  background: rgba(88, 166, 255, 0.08);
+}
+
+.admonition-note .admonition-title {
+  color: #58a6ff;
 }
 
 /* Warning */
 .admonition-warning {
-  border-left-color: #ffc107;
-  background-color: #fff9e6;
+  border-left-color: #d29922;
+  background: rgba(210, 153, 34, 0.08);
+}
+
+.admonition-warning .admonition-title {
+  color: #d29922;
 }
 
 /* Danger */
 .admonition-danger {
-  border-left-color: #dc3545;
-  background-color: #fdf0f0;
+  border-left-color: #f85149;
+  background: rgba(248, 81, 73, 0.08);
+}
+
+.admonition-danger .admonition-title {
+  color: #f85149;
 }
 
 /* Production */
 .admonition-production {
-  border-left-color: #6f42c1;
-  background-color: #f5f0ff;
+  border-left-color: #bc8cff;
+  background: rgba(188, 140, 255, 0.08);
+}
+
+.admonition-production .admonition-title {
+  color: #bc8cff;
 }
 
 /* Info */
 .admonition-info {
-  border-left-color: #17a2b8;
-  background-color: #eef9fb;
+  border-left-color: #58a6ff;
+  background: rgba(88, 166, 255, 0.08);
+}
+
+.admonition-info .admonition-title {
+  color: #58a6ff;
 }
